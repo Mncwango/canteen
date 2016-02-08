@@ -1,0 +1,66 @@
+﻿@model Canteen.Models.LunchMenu
+
+@{
+    ViewBag.Title = "CreateMenu";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h1 class="header text-center">Add Lunch</h1>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.DishName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DishName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DishName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Price, new { type = "number", htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ServedAt, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ServedAt, new { htmlAttributes = new { @class = "form-control", @id = "time" } })
+            @Html.ValidationMessageFor(model => model.ServedAt, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputFile" class="col-md-2 control-label">File</label>
+
+        <div class="col-md-10">
+            <input type="text" readonly="" class="form-control" placeholder="Browse...">
+            <input type="file" id="ImagePath" multiple="" name="ImagePath">
+        </div>
+    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.imagePath, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.imagePath,new { type = "file"})
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-xs btn-raised btn-primary active" />
+        </div>
+    </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

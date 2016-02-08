@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Canteen | @ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/material.min.js"></script>
+    <script src="~/Scripts/ripples.js"></script>
+    <script src="~/Scripts/moment-2.11.1.js"></script>
+    <script src="~/Scripts/bootstrap-material-datetimepicker.js"></script>
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-material-design.min.css" rel="stylesheet" />
+    <link href="~/Content/ripples.min.css" rel="stylesheet" />
+    <link href="~/Content/Canteen.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+
+    <div class="header-panel shadow-z-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-3">
+                    <h1>Canteen</h1>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid main">
+        <div class="row">
+            <nav class="col-xs-2 menu">
+                <ul>
+                    <li class="withripple @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" onclick="location.href = '@Url.Action("Index", "Lunch")'">@Html.ActionLink("Menu", "Index", "Lunch")</li>
+                    <li class="withripple @(ViewContext.RouteData.Values["Action"].ToString() == "CreateMenu" ? "active" : "")" onclick="location.href = '@Url.Action("CreateMenu", "Lunch")'">@Html.ActionLink("Add", "CreateMenu", "Lunch")</li>
+                </ul>
+            </nav>
+            <div class="pages col-xs-10">
+                <div class="row">
+                    <div class="col-xs-10">
+                        <div class="well page active" id="body">
+                            <div class="pull-right progress-bar-default">
+                                <label class="label label-success">Welcome @User.Identity.Name</label>
+                                <button type="button" class="btn btn-sm btn-raised btn-warning" onclick="location.href = '@Url.Action("LogOut", "Account")'">
+                                    Logout
+                                </button>
+                            </div>
+
+                            @RenderBody()
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+
+
+</html>
+<script>
+    $(document).ready(function () {
+        $('#time').bootstrapMaterialDatePicker({ format: 'dddd DD MMMM YYYY - HH:mm' });
+    });
+
+    $(window).on("resize", function () {
+        $("html, body").height($(window).height());
+        $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+        $(".pages").height($(window).height());
+    }).trigger("resize");
+
+
+</script>
+
+<script>
+    $.material.init();
+</script>
+

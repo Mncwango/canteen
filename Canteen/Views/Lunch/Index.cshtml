@@ -1,0 +1,38 @@
+﻿@model List<Canteen.Models.LunchMenuModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+
+<h1 class="header">Lunch Today @DateTime.Now.ToString("dd MMM yyyy")</h1>
+
+<div class="row">
+    @foreach (var x in Model)
+    {
+
+
+        <div class="col-md-6">
+            <div class="text-success">@x.DishName</div>
+            <div class="text-success">Served at @x.ServedAt</div>
+            <div class="text-success text-capitalize">For Only <span class="badge">@x.Price.ToString("c")</span></div>
+            
+        </div>
+
+        <div class="col-md-6">
+            <div class="img-responsive">
+                <img src="~/images/@x.ImagePath" width="120" />
+            </div>
+        </div>
+            <div class="col-xs-12 well-sm">
+                @Html.ActionLink("Edit", "Edit", new { id = @x.Id }, new { @class = "btn btn-xs btn-raised btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = @x.Id }, new { @class = "btn btn-xs btn-raised btn-danger" })
+        </div>
+
+
+
+    }
+</div>
+
+

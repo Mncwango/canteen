@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Canteen | @ViewBag.Title</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Load the scripts here-->
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/material.js"></script>
+    <script src="~/Scripts/ripples.js"></script>
+    <script src="~/Scripts/moment-2.11.1.js"></script>
+    <script src="~/Scripts/bootstrap-material-datetimepicker.js"></script>
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-material-design.min.css" rel="stylesheet" />
+    <link href="~/Content/ripples.min.css" rel="stylesheet" />
+    <link href="~/Content/Canteen.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+
+
+</head>
+<body class="container img-responsive" style="background-image:linear-gradient(rgba(40, 155, 159, 0.6), rgba(40, 155, 159, 0.6)), url('../../images/canteen.jpg')">
+    <div class="vertical-offset-100" style="margin-top: 10% !important;">
+        <div class="row">
+            <div class="col-xs-3">
+            </div>
+            <div class="col-xs-6 well page active">
+                @RenderBody()
+            </div>
+            <div class="col-xs-3">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $.material.init();
+</script>
