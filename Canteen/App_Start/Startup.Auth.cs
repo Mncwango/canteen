@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System.Configuration;
 
 namespace Canteen
 {
@@ -31,10 +32,14 @@ namespace Canteen
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
             //   consumerSecret: "");
-
-            app.UseFacebookAuthentication(
-               appId: "814354765377510",
-               appSecret: "856194652bde936ce6ae53a3d5f326b2");
+            string fbClientId = !string.IsNullOrEmpty(ConfigurationManager.AppSettings["FaceBookClientId"] as string) ? ConfigurationManager.AppSettings["FaceBookClientId"].ToString() : "";
+            string fbClientSecret = !string.IsNullOrEmpty(ConfigurationManager.AppSettings["FaceBookClientSecret"] as string) ? ConfigurationManager.AppSettings["FaceBookClientSecret"].ToString() : "";
+            if (!string.IsNullOrEmpty(fbClientId) && !string.IsNullOrEmpty(fbClientSecret))
+            {
+                app.UseFacebookAuthentication(
+                   appId: "814354765377510",
+                   appSecret: "856194652bde936ce6ae53a3d5f326b2");
+            }
 
            // app.UseGoogleAuthentication(clientId: "814354765377510", clientSecret: "856194652bde936ce6ae53a3d5f326b2");
         }
