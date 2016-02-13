@@ -41,7 +41,7 @@ namespace Canteen
                    appSecret: "856194652bde936ce6ae53a3d5f326b2");
             }
 
-           // app.UseGoogleAuthentication(clientId: "814354765377510", clientSecret: "856194652bde936ce6ae53a3d5f326b2");
+           // app.UseGoogleAuthentication(clientId: "", clientSecret: "");
         }
 
     }
