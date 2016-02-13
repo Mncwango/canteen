@@ -32,11 +32,11 @@ namespace Canteen
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "814354765377510",
+               appSecret: "856194652bde936ce6ae53a3d5f326b2");
 
-            //app.UseGoogleAuthentication();
+           // app.UseGoogleAuthentication(clientId: "814354765377510", clientSecret: "856194652bde936ce6ae53a3d5f326b2");
         }
 
     }

@@ -12,10 +12,13 @@
 }
 else
 {
-    <div class="danger">
-        <p>You dont seem to have the account in the system, please create the account first</p>
-    </div>
+    @Html.Partial("_SetPasswordPartial")
 }
+
+<section id="externalLogins">
+    @Html.Action("RemoveAccountList")
+    @Html.Partial("_ExternalLoginPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
+</section>
 <section>
 
 </section>

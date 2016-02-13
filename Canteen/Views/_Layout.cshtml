@@ -27,6 +27,7 @@
 
 
 
+
 </head>
 <body>
 
@@ -59,6 +60,7 @@
                                     Logout
                                 </button>
                             </div>
+                            
 
                             @RenderBody()
                         </div>
@@ -70,8 +72,12 @@
 
         </div>
     </div>
-
-
+    <div id="startup" class="hidden" >
+        <svg class="spinner-container" width="65px" height="65px" viewBox="0 0 52 52">
+            <circle class="path" cx="26px" cy="26px" r="20px" fill="none" stroke-width="4px" />
+        </svg>
+    </div>
+   
 
 </body>
 
@@ -89,7 +95,17 @@
         $(".pages").height($(window).height());
     }).trigger("resize");
 
-
+    $(document).ready(function() {
+        $.ajaxSetup({
+            beforeSend: function (xhr) {
+                alert('test')
+                $('#startup').removeClass('hidden');
+            },
+            complete:function(xhr){
+                $('#startup').addClass('hidden');
+            }
+        });
+    });
 </script>
 
 <script>
