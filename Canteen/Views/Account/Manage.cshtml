@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h2>Manage</h2>
+
+@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordLocal")
+}
+else
+{
+    <div class="danger">
+        <p>You dont seem to have the account in the system, please create the account first</p>
+    </div>
+}
+<section>
+
+</section>
+

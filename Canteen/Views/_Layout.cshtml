@@ -54,7 +54,7 @@
                     <div class="col-xs-10">
                         <div class="well page active" id="body">
                             <div class="pull-right progress-bar-default">
-                                <label class="label label-success">Welcome @User.Identity.Name</label>
+                                <label class="label label-success">Welcome<a href="@Url.Action("Manage","Account")" style="color:#FFFFFF !important;">&nbsp;@User.Identity.Name</a> </label>
                                 <button type="button" class="btn btn-sm btn-raised btn-warning" onclick="location.href = '@Url.Action("LogOut", "Account")'">
                                     Logout
                                 </button>
